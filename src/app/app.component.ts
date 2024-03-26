@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.shoppingList = this.list.getListaDeCompra();
     console.log(this.shoppingList);
+
   }
 
 }

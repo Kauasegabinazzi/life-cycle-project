@@ -19,4 +19,7 @@ export class AppComponent implements OnInit {
 
   }
 
+  edit(item: Item) {
+    console.log(item);
+  }
 }

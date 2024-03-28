@@ -10,7 +10,9 @@ import { ListaDeCompraService } from 'src/app/service/lista-de-compra.service';
 export class InputComponent implements OnInit, OnChanges {
 
   @Input() itemEdit!: Item;
+  isEdit = false;
   valorItem!: string;
+  text: string = 'save item';
 
   constructor(private service: ListaDeCompraService) { }
 
@@ -18,6 +20,8 @@ export class InputComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['itemEdit'].firstChange) {
+      this.isEdit = true;
+      this.text = 'edit item';
       this.valorItem = this.itemEdit?.nome;
     }
   }
@@ -29,5 +33,12 @@ export class InputComponent implements OnInit, OnChanges {
 
   limparCampo() {
     this.valorItem = '';
+  }
+
+  editItem() {
+    this.service.editItemList(this.itemEdit, this.valorItem);
+    this.limparCampo();
+    this.isEdit = false;
+    this.text = 'save item';
   }
 }

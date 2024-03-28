@@ -46,8 +46,19 @@ export class ListaDeCompraService {
     return items
   }
 
-  updateList(item: string){
+  updateList(item: string) {
     const items = this.createItem(item);
     this.listaDeCompra.push(items);
+  }
+
+  editItemList(itemOld: Item, nameEditItem: string) {
+    const itemEdit: Item = {
+      id: itemOld.id,
+      nome: nameEditItem,
+      data: itemOld.data,
+      comprado: itemOld.comprado
+    }
+    const id = itemOld.id;
+    this.listaDeCompra.splice(Number(id) - 1, 1, itemEdit);
   }
 }

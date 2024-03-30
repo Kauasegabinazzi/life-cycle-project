@@ -1,5 +1,6 @@
 import { Item } from 'src/app/interfaces/iItem';
 import { Injectable } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,7 @@ export class ListaDeCompraService {
   updateList(item: string) {
     const items = this.createItem(item);
     this.listaDeCompra.push(items);
+    this.updateLocalStorege();
   }
 
   editItemList(itemOld: Item, nameEditItem: string) {
@@ -43,5 +45,10 @@ export class ListaDeCompraService {
     }
     const id = itemOld.id;
     this.listaDeCompra.splice(Number(id) - 1, 1, itemEdit);
+    this.updateLocalStorege();
+  }
+
+  updateLocalStorege(){
+    localStorage.setItem('itens', JSON.stringify(this.listaDeCompra))
   }
 }

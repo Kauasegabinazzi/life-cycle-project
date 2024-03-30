@@ -33,7 +33,7 @@ export class ListaDeCompraService {
   updateList(item: string) {
     const items = this.createItem(item);
     this.listaDeCompra.push(items);
-    this.updateLocalStorege();
+    // this.updateLocalStorege();
   }
 
   editItemList(itemOld: Item, nameEditItem: string) {
@@ -45,7 +45,7 @@ export class ListaDeCompraService {
     }
     const id = itemOld.id;
     this.listaDeCompra.splice(Number(id) - 1, 1, itemEdit);
-    this.updateLocalStorege();
+    // this.updateLocalStorege();
   }
 
   updateLocalStorege(){

@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.list.updateLocalStorege();
   }
   // verifica qualquer verificação dentro de um componente - defeito = escuta todas as alterações - pode perder performace
-  
+  // Exatamente. Este gancho é caro para a aplicação pois utiliza um mecanismo de detecção de alterações personalizada, que verifica qualquer mudança que houver no componente. Então seu uso deve ser responsável para que não haja perda de performance.
   // ngChange detecta apenas as alterações de entradas de um componente - @Input
 
   edit(item: Item) {

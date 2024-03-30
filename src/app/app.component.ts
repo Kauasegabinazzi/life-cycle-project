@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log('chamado')
+    console.log('verifando tudo')
     this.list.updateLocalStorege();
   }
   // verifica qualquer verificação dentro de um componente - defeito = escuta todas as alterações - pode perder performace
@@ -30,5 +30,10 @@ export class AppComponent implements OnInit, DoCheck {
 
   edit(item: Item) {
     this.itemForEdit = item;
+  }
+
+  deleteItem(id: number){
+    const index = this.shoppingList.findIndex((item) => item.id === id);
+    this.shoppingList.splice(index, 1);
   }
 }

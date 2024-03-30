@@ -8,7 +8,7 @@
 
   
       <div *ngFor="let item of shoppingList">
-        <app-item [item]="item" (emitItem)="edit($event)"></app-item>
+        <app-item [item]="item" (emitItem)="edit($event)" (emitIdDelete)="deleteItem($event)"></app-item>
       </div>
     </div>
     <ng-template #noItem>Não tem item na lista</ng-template>

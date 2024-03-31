@@ -3,10 +3,18 @@
   </app-input>
   <div class="container">
     <div class="lista">
+      <div class="header-lista">
       <h4 class="title-list">Lista de Compras</h4>
+      <button class="btn-header" (click)="clearList()">
+        <small> limpar lista </small>
+      </button>
+    </div>
+      <div *ngIf="shoppingList.length !==0; else noItem">
       <div *ngFor="let item of shoppingList">
-        <app-item [item]="item" (emitItem)="edit($event)"></app-item>
+        <app-item [item]="item" (emitItem)="edit($event)" (emitIdDelete)="deleteItem($event)"></app-item>
       </div>
+    </div>
+    <ng-template #noItem>Não tem item na lista</ng-template>
     </div>
   </div>
 </section>

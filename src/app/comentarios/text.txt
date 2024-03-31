@@ -1,0 +1,2 @@
+// depois do onChanges preparar a informação, o init tras as informações pra tela
+// on changes é antes do init pois prepara a informação
